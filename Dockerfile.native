@@ -1,0 +1,12 @@
+ARG APP_FILE=chatgpt
+
+FROM debian:bookworm-slim
+
+ARG APP_FILE
+ENV OPENAI_DEMO_API_KEY ${OPENAI_DEMO_API_KEY}
+
+COPY target/${APP_FILE} ${APP_FILE}
+
+EXPOSE 8080
+
+ENTRYPOINT ["/chatgpt"]
